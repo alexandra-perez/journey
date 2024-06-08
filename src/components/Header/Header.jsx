@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <div className="navbar bg-base-100">
@@ -25,8 +27,9 @@ export default function Header() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Journey</a>
-
+              <Link to="/">
+                <a>Journey</a>
+              </Link>
             </li>
             <li>
               <a>Parent</a>
@@ -44,7 +47,9 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to="/">
+          <a className="btn btn-ghost text-xl">Journey</a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -70,7 +75,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Sign Up</a>
+        <a className="btn">Sign Up / Log In</a>
       </div>
     </div>
   );
