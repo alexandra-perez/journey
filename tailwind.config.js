@@ -3,15 +3,14 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      // colors
       colors: {
         primary: {
           light: '#6D28D9',
-          DEFAULT: 'red',
-          dark: '#21aa6d',
+          DEFAULT: '#FF0000',
+          dark: '#21AA6D',
         },
       },
     },
-    plugins: [],
   },
+  plugins: [require('@tailwindcss/forms')],
 };
