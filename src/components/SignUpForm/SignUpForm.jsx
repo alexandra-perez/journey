@@ -1,9 +1,27 @@
+import { useState } from 'react';
+import { auth } from '../../firebase';
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import './SignUpForm.scss';
 
-export default function Example() {
+export default function SignUpForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        alert('User created successfully');
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }
+
   return (
-    <form className="SignUp">
+    <form className="SignUp" onSubmit={handleSubmit}>
       {/* || Personal Information */}
       <div className="border-b border-gray-900/10 pb-12">
         <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -132,7 +150,7 @@ export default function Example() {
                   rows={3}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
-                  placeholder='About me...'
+                  placeholder="About me..."
                 />
               </div>
             </div>
