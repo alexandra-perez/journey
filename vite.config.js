@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      firebase: 'firebase/app',
+      '@': '/src',
     },
   },
 });

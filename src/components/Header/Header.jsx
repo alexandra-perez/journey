@@ -48,34 +48,36 @@ export default function Header() {
           </ul>
         </div>
         <Link to="/">
-          <a className="btn btn-ghost text-xl">Journey</a>
+          <ul>
+            <p className="btn btn-ghost text-xl">Journey</p>
+          </ul>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <p>Item 1</p>
           </li>
           <li>
             <details>
               <summary>Parent</summary>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <p>Submenu 1</p>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <p>Submenu 2</p>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <a>Item 3</a>
+            <p>Item 3</p>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Sign Up / Log In</a>
+        <button className="btn">Sign Up / Log In</button>
       </div>
     </div>
   );

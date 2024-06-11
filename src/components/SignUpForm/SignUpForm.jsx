@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import './SignUpForm.scss';
 
 export default function SignUpForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
+  const [about, setAbout] = useState('');
   const [error, setError] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(email, password)
       .then(() => {
         alert('User created successfully');
       })
@@ -47,6 +51,8 @@ export default function SignUpForm() {
                 id="first-name"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
           </div>
@@ -65,6 +71,8 @@ export default function SignUpForm() {
                 id="last-name"
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
@@ -83,6 +91,8 @@ export default function SignUpForm() {
                 type="email"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -110,6 +120,8 @@ export default function SignUpForm() {
                     autoComplete="username"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="@janesmith"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
               </div>
@@ -149,8 +161,10 @@ export default function SignUpForm() {
                   name="about"
                   rows={3}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
+                  // defaultValue={''}
                   placeholder="About me..."
+                  value={about}
+                  onChange={(e) => setAbout(e.target.value)}
                 />
               </div>
             </div>
