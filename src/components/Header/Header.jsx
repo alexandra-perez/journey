@@ -28,14 +28,14 @@ export default function Header() {
           >
             <li>
               <Link to="/">
-                <a>Journey</a>
+                <p>Home</p>
               </Link>
             </li>
             <li>
               <a>Parent</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1ggf</a>
+                  <a>Submenu 1</a>
                 </li>
                 <li>
                   <a>Submenu 2</a>
@@ -47,11 +47,10 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <Link to="/">
           <ul>
-            <p className="btn btn-ghost text-xl">Journey</p>
+            <Link to="/"><p className="btn btn-ghost text-xl">Journey</p></Link>
           </ul>
-        </Link>
+
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
